@@ -13,9 +13,22 @@ function Signup() {
         setError(null);
         setIsLoading(true);
 
-        // --- Quick Testing Bypass is active ---
+        if (mobileNumber.length !== 10) {
+            setError("Mobile number must be exactly 10 digits.");
+            setIsLoading(false);
+            return;
+        }
         
-        console.log(`Bypassing validation. Simulating signup for: +91${mobileNumber}`);
+        
+        if (isNaN(mobileNumber)) {
+            setError("Mobile number can only contain digits.");
+            setIsLoading(false);
+            return;
+        }
+        
+        // --------------------------------------------------------
+
+        console.log(`Valid number received. Simulating OTP send to: +91${mobileNumber}`);
         
         // Simulating API call time and success
         setTimeout(() => {
@@ -77,7 +90,7 @@ function Signup() {
                                 className="cta-button" 
                                 disabled={isLoading || mobileNumber.length === 0}
                             >
-                                {isLoading ? 'Sending OTP...' : 'Continue'}
+                                {isLoading ? 'Confirming...' : 'Continue'}
                             </button>
 
                             <p className="login-link">
