@@ -23,7 +23,7 @@ function Signup() {
             setIsLoading(false);
             
             // Redirect the entire browser session to the dashboard server
-            window.location.href = 'http://localhost:3001/dashboard'; 
+            window.location.href = 'https://stock-management-dashboard.onrender.com'; 
             
         }, 1500);
     };
